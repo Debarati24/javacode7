@@ -1,0 +1,83 @@
+import java.util.*;
+public class encapsulation 
+{
+   String name[];
+   int yearofjoining[];
+   int salary[];
+   String address[];
+   encapsulation(int s)
+   {
+	name = new String[s];
+	yearofjoining = new int[s];
+	salary = new int[s];
+	address = new String[s];
+   }	
+   public String getName(int i) 
+   {
+	return name[i];
+   }
+   public void setName(String name,int i) 
+   {
+	this.name[i] = name;
+   }
+   public int getYearofjoining(int i) 
+   {
+	return yearofjoining[i];
+   }
+   public void setYearofjoining(int yearofjoining,int i) 
+   {
+	this.yearofjoining[i] = yearofjoining;
+   }
+   public int getSalary(int i) 
+   {
+	return salary[i];
+   }
+   public void setSalary(int salary,int i) 
+   {
+	this.salary[i] = salary;
+   }
+   public String getAddress(int i) 
+   {
+	return address[i];
+   }
+   public void setAddress(String address,int i) 
+   {
+	this.address[i] = address;
+   }
+}
+
+import java.util.*;
+public class Employee 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		Scanner str =  new Scanner(System.in);
+		System.out.print("Enter the number of employee whose details you want to enter : ");
+		int num = sc.nextInt();
+		encapsulation encap =  new encapsulation(num);
+		
+		for(int i=0;i<num;i++)
+		{
+		 System.out.println("Employee "+(i+1)+" ----------->");
+		 System.out.print("Enter the name of Employee: ");
+		 String nm = str.nextLine();
+		 encap.setName(nm,i);
+		 System.out.print("Enter the year of joining of Employee: ");
+		 int yoj = sc.nextInt();
+		 encap.setYearofjoining(yoj,i);
+		 System.out.print("Enter the salary of Employee: ");
+		 int salary = sc.nextInt();
+		 encap.setSalary(salary,i);
+		 System.out.print("Enter the address of Employee: ");
+		 String adrs = str.nextLine();
+		 encap.setAddress(adrs,i);
+		 System.out.println();
+		}
+		 System.out.println("NAME"+"\t\t"+"YEAR OF JOINING"+"\t\t"+"SALARY"+"\t\t"+"ADDRESS");
+		for(int j=0;j<num;j++)
+		{
+		 System.out.println(encap.getName(j)+"\t\t\t"+encap.getYearofjoining(j)+"\t\t"+encap.getSalary(j)+"\t\t"+encap.getAddress(j));
+		}
+	}
+}
